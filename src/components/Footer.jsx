@@ -93,8 +93,8 @@ const Footer = () => {
             <a href="mailto:sharad868788@gmail.com" className="contact-link">
               sharad868788@gmail.com
             </a>
-            <a href="tel:+91 8687888687" className="contact-link">
-              +91 8687888687
+            <a href="tel:+91 8687886956" className="contact-link">
+              +91 8687886956
             </a>
           </motion.div>
         </motion.div>
