@@ -1,0 +1,577 @@
+/* Root Variables */
+:root {
+  --neon-cyan: #00BFFF;
+  --neon-teal: #00CED1;
+  --soft-bg: rgba(245, 235, 220, 0.9);
+  --shadow-glow: 0 0 25px rgba(0, 191, 255, 0.7);
+  /* Stronger glow */
+}
+
+/* Main container */
+.hero-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Matrix background */
+.matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #000;
+}
+
+/* Main content section */
+.hero-section {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Content container */
+.content-container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  padding: 2rem;
+}
+
+/* Content wrapper */
+.hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Text content wrapper */
+.text-content {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Simple greeting style */
+.greeting {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  color: #000;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 6px;
+}
+
+/* Simple responsive adjustments */
+@media (max-width: 768px) {
+  .greeting {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 1.5rem;
+  }
+}
+
+/* Description text spacing */
+p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0.2rem 0;
+  letter-spacing: 0.3px;
+}
+
+/* Button container with increased bottom margin */
+.cta-buttons {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  padding-top: 3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Enhanced button styles */
+.primary-button,
+.secondary-button {
+  min-width: 200px;
+  height: 55px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary button enhanced styling */
+.primary-button {
+  background: linear-gradient(45deg, #00BCD4, #4ECDC4, #00BCD4);
+  background-size: 200% auto;
+  color: #000;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+}
+
+.primary-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent);
+  transition: all 0.6s;
+}
+
+.primary-button:hover {
+  transform: translateY(-4px);
+  background-position: right center;
+  box-shadow: 0 8px 30px rgba(0, 188, 212, 0.5),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+}
+
+.primary-button:hover::before {
+  left: 100%;
+}
+
+/* Secondary button enhanced styling */
+.secondary-button {
+  background: transparent;
+  color: #00BCD4;
+  border: 2.5px solid #00BCD4;
+  box-shadow: 0 4px 15px rgba(0, 188, 212, 0.1),
+    inset 0 0 10px rgba(0, 188, 212, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.secondary-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #00BCD4, #4ECDC4);
+  transition: all 0.5s;
+  z-index: -1;
+  opacity: 0;
+}
+
+.secondary-button:hover {
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 188, 212, 0.3),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+  border-color: transparent;
+}
+
+.secondary-button:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Button text enhancement */
+.primary-button span,
+.secondary-button span {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Button active states */
+.primary-button:active,
+.secondary-button:active {
+  transform: translateY(-2px);
+  transition: all 0.1s;
+}
+
+/* Add icons to buttons */
+.primary-button span::after {
+  content: '→';
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.primary-button:hover span::after {
+  transform: translateX(5px);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-buttons {
+    padding-top: 2rem;
+    gap: 1rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    height: 45px;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Name heading adjustments */
+.name-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0.3rem 0;
+}
+
+.first-name,
+.last-name {
+  display: flex;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+/* SHARAD styling */
+.first-name .magic-letter {
+  font-size: 4.2rem;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  color: #00BCD4;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+  letter-spacing: 2px;
+}
+
+/* PANDEY styling */
+.last-name .magic-letter {
+  font-size: 4.2rem;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  position: relative;
+  transition: all 0.3s ease;
+  color: #4ECDC4;
+  text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+  letter-spacing: 2px;
+}
+
+/* Hover effects for SHARAD */
+.first-name:hover .magic-letter {
+  animation: glowPulse 1.5s infinite;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+/* Hover effects for PANDEY */
+.last-name:hover .magic-letter {
+  animation: floatEffect 2s infinite;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+/* Click effects */
+.first-name:active .magic-letter,
+.last-name:active .magic-letter {
+  animation: popEffect 0.5s ease forwards;
+}
+
+/* Animations */
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    color: #00BCD4;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+  }
+
+  50% {
+    color: #4ECDC4;
+    text-shadow: 0 0 20px rgba(78, 205, 196, 0.6),
+      0 0 40px rgba(78, 205, 196, 0.4);
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes floatEffect {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+  }
+
+  50% {
+    transform: translateY(-8px);
+    text-shadow: 0 0 20px rgba(78, 205, 196, 0.6),
+      0 0 40px rgba(78, 205, 196, 0.4);
+  }
+}
+
+@keyframes popEffect {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+    text-shadow: 0 0 30px rgba(0, 188, 212, 0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Keep your existing responsive styles */
+@media (max-width: 768px) {
+
+  .first-name .magic-letter,
+  .last-name .magic-letter {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .first-name .magic-letter,
+  .last-name .magic-letter {
+    font-size: 2.8rem;
+  }
+}
+
+/* Developer titles styling with gradient */
+.developer-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.developer-title span {
+  position: relative;
+  padding: 0.3rem 1rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-radius: 4px;
+  color: #000;
+}
+
+/* Separator dot with gradient */
+.developer-title .separator {
+  background: none;
+  padding: 0;
+  color: #4ecdc4;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .developer-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .developer-title {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .developer-title .separator {
+    display: none;
+  }
+}
+
+/* Typewriter styles */
+.typewriter {
+  margin: 0.8rem 0;
+  padding: 0.4rem 0;
+}
+
+.typed-text {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 0.4rem 1.2rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+/* Cursor effect */
+.typed-text::after {
+  content: '|';
+  position: absolute;
+  right: -2px;
+  color: #4ecdc4;
+  animation: blink 1s infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 4s;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive styles - also increased */
+@media (max-width: 768px) {
+  .typed-text {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .typed-text {
+    font-size: 1.4rem;
+  }
+}
+
+/* Developer titles container */
+.developer-titles {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.title-wrapper {
+  overflow: hidden;
+}
+
+/* Title styling */
+.dev-title {
+  display: inline-block;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+/* Separator styling */
+.separator {
+  display: inline-block;
+  color: #4ecdc4;
+  font-size: 1.5rem;
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Delay second title */
+.title-wrapper:nth-child(3) .dev-title {
+  animation-delay: 0.2s;
+}
+
+/* Animations */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .dev-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .developer-titles {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .dev-title {
+    font-size: 1rem;
+  }
+}

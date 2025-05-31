@@ -1,0 +1,258 @@
+.skills-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  background: linear-gradient(135deg, #0a192f, #112240, #0a192f); /* Deeper, more professional gradient */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle animated background overlay */
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(100, 255, 218, 0.08) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.skills-section h2 {
+  margin-top: 2rem;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #e6f1ff;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-weight: 800;
+  padding: 20px 40px;
+  text-shadow: 
+    0 0 10px rgba(100, 255, 218, 0.3),
+    0 0 20px rgba(100, 255, 218, 0.3),
+    0 0 30px rgba(100, 255, 218, 0.3);
+  animation: textPulse 3s ease-in-out infinite;
+}
+
+/* Decorative lines */
+.skills-section h2::before,
+.skills-section h2::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100px;
+  background: linear-gradient(90deg, 
+    transparent,
+    #64ffda,
+    transparent
+  );
+}
+
+.skills-section h2::before {
+  left: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.skills-section h2::after {
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Bottom decorative element */
+.skills-section h2 span {
+  position: relative;
+}
+
+.skills-section h2 span::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent,
+    #64ffda,
+    transparent
+  );
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    color: #e6f1ff;
+    text-shadow: 
+      0 0 10px rgba(100, 255, 218, 0.3),
+      0 0 20px rgba(100, 255, 218, 0.3),
+      0 0 30px rgba(100, 255, 218, 0.3);
+  }
+  50% {
+    color: #64ffda;
+    text-shadow: 
+      0 0 20px rgba(100, 255, 218, 0.5),
+      0 0 30px rgba(100, 255, 218, 0.5),
+      0 0 40px rgba(100, 255, 218, 0.5);
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    clip-path: inset(0 0 98% 0);
+  }
+  25% {
+    clip-path: inset(0 98% 0 0);
+  }
+  50% {
+    clip-path: inset(98% 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 98%);
+  }
+  100% {
+    clip-path: inset(0 0 98% 0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(15px);
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(20px);
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+/* Add floating animation */
+.skills-section h2 {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Add shine effect */
+.skills-section h2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-section h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 255, 218, 0.2),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  20% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skills-container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  transform-style: preserve-3d;
+  animation: rotate 25s linear infinite;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-item {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(10, 25, 47, 0.7);
+  border: 2px solid rgba(100, 255, 218, 0.3);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 25px rgba(100, 255, 218, 0.2),
+    inset 0 0 15px rgba(100, 255, 218, 0.1);
+  transform-origin: center;
+  transform-style: preserve-3d;
+}
+
+.skill-text {
+  color: #e6f1ff;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1.5rem;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.skill-item:hover {
+  transform: scale(1.15) !important;
+  background: rgba(100, 255, 218, 0.15);
+  box-shadow: 
+    0 0 40px rgba(100, 255, 218, 0.3),
+    inset 0 0 20px rgba(100, 255, 218, 0.2);
+  border-color: rgba(100, 255, 218, 0.6);
+  z-index: 1;
+}
+
+/* Add glass morphism effect on hover */
+.skill-item:hover .skill-text {
+  color: #64ffda;
+}
